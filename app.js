@@ -28,7 +28,30 @@ const game = {
             level.completed=true;
         }
     });
-  }
+  }, 
+  completedCount: 0,
+  incompleteCount: 0,
+  gymStatus: function() {
+    for(let i=0;i<game.gyms.length;i++) {
+      if (i==0){
+        game.completedCount = 0;
+        game.incompleteCount= 0;
+      }
+      if (game.gyms[i].completed){
+          game.completedCount++;
+          console.log("INside");
+      } else {
+        game.incompleteCount++;
+           console.log("INside else");
+      }
+    }},
+  partyCount: function() {
+      return game.party.length;
+    },
+  completeAll: function(){
+      for(let  i=0;i<game.gyms.length;i++){
+    game.gyms[i].completed=true;
+  }}
 
 };
 
@@ -126,6 +149,28 @@ console.log(game.items[1].quantity);
 //Exercise 12
 
 game.completeLevel(6);
+
+console.log(game);
+
+
+//Exercise 13
+
+game.gymStatus();
+
+
+console.log(game.incompleteCount);
+
+
+//Exercise 14
+
+
+console.log(game.partyCount());
+
+//Exercise 15
+
+// Completing all levels:
+
+game.completeAll();
 
 console.log(game);
 
